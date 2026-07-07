@@ -1,0 +1,217 @@
+=== TEST MODE: Federated CNN+BiLSTM XAI IDS Training with LIMITED DATASET ===
+Using only a deterministic subset of files for quick testing
+======================================================================
+Processing LIMITED files for testing...
+Using 8 out of 10 files for testing
+Fitting preprocessing on sample data...
+Fitting preprocessing objects...
+Input dimension set to: 46
+Preprocessing objects fitted successfully
+Classes: ['Benign', 'DDoS', 'DoS', 'Mirai', 'Other', 'Recon']
+Processing file 1/8: part-00001-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 218805 samples so far...
+Processing file 2/8: part-00002-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 494063 samples so far...
+Processing file 3/8: part-00003-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 725086 samples so far...
+Processing file 4/8: part-00004-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 952577 samples so far...
+Processing file 5/8: part-00005-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 1192623 samples so far...
+Processing file 6/8: part-00006-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 1426416 samples so far...
+Processing file 7/8: part-00007-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 1654326 samples so far...
+Processing file 8/8: part-00008-363d1ba3-8ab5-4f96-bc25-4d5862db7cb9-c000.csv
+  Processed 1900653 samples so far...
+Client 1: 304099 training, 76029 test samples
+Client 2: 304099 training, 76029 test samples
+Client 3: 304099 training, 76029 test samples
+Client 4: 304099 training, 76029 test samples
+Client 5: 304109 training, 76032 test samples
+Total processed samples: 1900653
+
+Starting Federated Training (TEST MODE)...
+
+--- Federated Round 1 ---
+Training Client 1...
+Client 1 accuracy: 0.9884
+Training Client 2...
+Client 2 accuracy: 0.9876
+Training Client 3...
+Client 3 accuracy: 0.9875
+Training Client 4...
+Client 4 accuracy: 0.9882
+Training Client 5...
+Client 5 accuracy: 0.9875
+Aggregating weights with FedAvg...
+Global model accuracy after round 1: 0.8275
+
+--- Federated Round 2 ---
+Training Client 1...
+Client 1 accuracy: 0.9887
+Training Client 2...
+Client 2 accuracy: 0.9897
+Training Client 3...
+Client 3 accuracy: 0.9886
+Training Client 4...
+Client 4 accuracy: 0.9894
+Training Client 5...
+Client 5 accuracy: 0.9876
+Aggregating weights with FedAvg...
+Global model accuracy after round 2: 0.9890
+
+--- Federated Round 3 ---
+Training Client 1...
+Client 1 accuracy: 0.9896
+Training Client 2...
+Client 2 accuracy: 0.9901
+Training Client 3...
+Client 3 accuracy: 0.9892
+Training Client 4...
+Client 4 accuracy: 0.9893
+Training Client 5...
+Client 5 accuracy: 0.9886
+Aggregating weights with FedAvg...
+Global model accuracy after round 3: 0.9899
+
+--- Federated Round 4 ---
+Training Client 1...
+Client 1 accuracy: 0.9894
+Training Client 2...
+Client 2 accuracy: 0.9903
+Training Client 3...
+Client 3 accuracy: 0.9898
+Training Client 4...
+Client 4 accuracy: 0.9899
+Training Client 5...
+Client 5 accuracy: 0.9894
+Aggregating weights with FedAvg...
+Global model accuracy after round 4: 0.9901
+
+--- Federated Round 5 ---
+Training Client 1...
+Client 1 accuracy: 0.9896
+Training Client 2...
+Client 2 accuracy: 0.9906
+Training Client 3...
+Client 3 accuracy: 0.9897
+Training Client 4...
+Client 4 accuracy: 0.9898
+Training Client 5...
+Client 5 accuracy: 0.9897
+Aggregating weights with FedAvg...
+Global model accuracy after round 5: 0.9905
+
+--- Federated Round 6 ---
+Training Client 1...
+Client 1 accuracy: 0.9899
+Training Client 2...
+Client 2 accuracy: 0.9907
+Training Client 3...
+Client 3 accuracy: 0.9897
+Training Client 4...
+Client 4 accuracy: 0.9901
+Training Client 5...
+Client 5 accuracy: 0.9895
+Aggregating weights with FedAvg...
+Global model accuracy after round 6: 0.9905
+
+--- Federated Round 7 ---
+Training Client 1...
+Client 1 accuracy: 0.9898
+Training Client 2...
+Client 2 accuracy: 0.9906
+Training Client 3...
+Client 3 accuracy: 0.9896
+Training Client 4...
+Client 4 accuracy: 0.9903
+Training Client 5...
+Client 5 accuracy: 0.9895
+Aggregating weights with FedAvg...
+Global model accuracy after round 7: 0.9906
+
+==================================================
+TEST MODE - FINAL EVALUATION
+==================================================
+Final Global Model Test Accuracy: 0.9906
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Benign       0.81      0.95      0.88      8957
+        DDoS       1.00      1.00      1.00    277175
+         DoS       1.00      1.00      1.00     65401
+       Mirai       1.00      1.00      1.00     21437
+       Other       0.84      0.65      0.73      4327
+       Recon       0.77      0.63      0.69      2851
+
+    accuracy                           0.99    380148
+   macro avg       0.90      0.87      0.88    380148
+weighted avg       0.99      0.99      0.99    380148
+
+Overall Accuracy: 0.9906
+
+============================================================
+╙ Applying SHAP (Kernel SHAP) for Global Explainability
+============================================================
+4/4 ━━━━━━━━━━━━━━━━━━━━ 0s 29ms/step
+  0%|          | 0/25 [00:00<?, ?it/s]
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 77ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 61ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 4ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 68ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 49ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 48ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 51ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 66ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 4ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 45ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 48ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 4ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 49ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 49ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 46ms/step
+313/313 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+╙ SHAP summary plots saved successfully.
+Model saved as 'fedxaiids_CNN_BiLSTM_TEST.h5'
+Preprocessing objects saved
+
+==================================================
+TEST COMPLETED SUCCESSFULLY!
+==================================================
